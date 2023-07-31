@@ -11,6 +11,9 @@ git add . 将所有的文件推到暂存区
 git status 此时修改和添加的文件是绿色的
 git commit -m “” 将暂存区的代码推到本地仓库
 git status 此时工作目录是干净的
+
+git poll 拉取远程分支，处理冲突
+
 git push origin xxx 将本地仓库xxx推到远程xxx，远程上有这个分支时可以不用写origin xxx
 
 ## 合并到master分支：
