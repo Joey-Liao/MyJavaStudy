@@ -12,7 +12,7 @@ git status 此时修改和添加的文件是绿色的
 git commit -m “” 将暂存区的代码推到本地仓库
 git status 此时工作目录是干净的
 
-git poll 拉取远程分支，处理冲突
+git pull origin master 拉取远程分支，处理冲突
 
 git push origin xxx 将本地仓库xxx推到远程xxx，远程上有这个分支时可以不用写origin xxx
 
@@ -24,6 +24,10 @@ git pull origin master 保险起见先拉一下master分支上的代码
 
 git merge xxx 将xxx合并到master分支
 git push 将master分支代码推到远程，因为远程上有master分支，所以可以不用加origin master
+
+
+
+
 
 ## git如何撤销上一次commit操作：
 
@@ -52,3 +56,9 @@ git pull
 分支推送到远程仓库：git push origin 分支名
 
 删除远程分支：git push origin –delete 分支名
+
+
+
+
+
+here
