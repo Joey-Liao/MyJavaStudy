@@ -176,6 +176,10 @@ SSL/TLS 协议基本流程：
 
 TLS 的「握手阶段」涉及**四次**通信，使用不同的密钥交换算法，TLS 握手流程也会不一样的，现在常用的密钥交换算法有两种：[RSA 算法 (opens new window)](https://xiaolincoding.com/network/2_http/https_rsa.html)和 [ECDHE 算法 (opens new window)](https://xiaolincoding.com/network/2_http/https_ecdhe.html)。
 
+![image-20230728150653139](HTTP常见面试题.assets/image-20230728150653139.png)
+
+
+
 
 
 ## HTTP/1.1、HTTP/2、HTTP/3 演变
