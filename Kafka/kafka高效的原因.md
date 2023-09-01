@@ -84,6 +84,10 @@ Reacotr 模型主要分为三个角色
 
 
 
+
+
+
+
 ## Kafka分区并发
 
 Kafka 的 Topic 可以分成多个 Partition，每个 Paritition 类似于一个队列，保证数据有序。同一个 Group 下的不同 Consumer 并发消费 Paritition，分区实际上是调优 Kafka 并行度的最小单元，因此，可以说，每增加一个 Paritition 就增加了一个消费并发。
