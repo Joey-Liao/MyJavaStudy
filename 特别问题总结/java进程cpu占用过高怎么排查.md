@@ -91,7 +91,7 @@ GCT：垃圾回收消耗总时间
 
 如果发现FGC次数和频率很高,那么不用怀疑,你的程序肯定哪里写的有问题。这个时候就需要用jstack和jmap去分析堆内存使用情况
 
-### 使用命令**jmap** 内存堆存储快照
+###  
 
 **jmap -dump:format=b,file=/tmp/my.hprof [java进程id]**
 
@@ -100,3 +100,76 @@ GCT：垃圾回收消耗总时间
 然后使用内存分析工具，如Eclipse Memory Analyzer等分析**my.hprof**文件，分析内存那块占用大，存在内存泄露，导致空间无法释放。
 
 专用软件如**jprofiler** 分析出什么对象占用了大量空间
+
+
+
+
+
+```c++
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+#include <vector>
+
+const int bufferSize = 5;  // 缓冲区大小
+std::vector<int> buffer(bufferSize);
+int in = 0;  // 生产者插入位置
+int out = 0; // 消费者读取位置
+int itemCount = 0; // 当前缓冲区中的项目数
+
+std::mutex mtx;
+std::condition_variable cv;
+
+void producer(int id) {
+    for (int i = 0; i < 10; ++i) {
+        {
+            std::unique_lock<std::mutex> lock(mtx);
+            cv.wait(lock, [] { return itemCount < bufferSize; });
+            buffer[in] = i;
+            in = (in + 1) % bufferSize;
+            ++itemCount;
+            std::cout << "Producer " << id << " produced: " << i << std::endl;
+        }
+        cv.notify_all();
+    }
+}
+
+void consumer(int id) {
+    for (int i = 0; i < 10; ++i) {
+        {
+            std::unique_lock<std::mutex> lock(mtx);
+            cv.wait(lock, [] { return itemCount > 0; });
+            int data = buffer[out];
+            out = (out + 1) % bufferSize;
+            --itemCount;
+            std::cout << "Consumer " << id << " consumed: " << data << std::endl;
+        }
+        cv.notify_all();
+    }
+}
+
+int main() {
+    std::vector<std::thread> producers;
+    std::vector<std::thread> consumers;
+
+    for (int i = 0; i < 3; ++i) {
+        producers.push_back(std::thread(producer, i));
+    }
+
+    for (int i = 0; i < 2; ++i) {
+        consumers.push_back(std::thread(consumer, i));
+    }
+
+    for (auto& producerThread : producers) {
+        producerThread.join();
+    }
+
+    for (auto& consumerThread : consumers) {
+        consumerThread.join();
+    }
+
+    return 0;
+}
+```
+
