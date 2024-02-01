@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="a-rocketmq-demo" />
+        <module name="b-rocketmq-boot-p" />
+        <module name="c-rocketmq-boot-c" />
+        <module name="e-seckill-web" />
+        <module name="d-tomcat-qps-test" />
+        <module name="f-seckill-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="a-rocketmq-demo" target="1.8" />
+      <module name="b-rocketmq-boot-p" target="1.8" />
+      <module name="c-rocketmq-boot-c" target="1.8" />
+      <module name="d-tomcat-qps-test" target="1.8" />
+      <module name="e-seckill-web" target="1.8" />
+      <module name="f-seckill-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="a-rocketmq-demo" options="-parameters" />
+      <module name="b-rocketmq-boot-p" options="-parameters" />
+      <module name="c-rocketmq-boot-c" options="-parameters" />
+      <module name="d-tomcat-qps-test" options="-parameters" />
+      <module name="e-seckill-web" options="-parameters" />
+      <module name="f-seckill-service" options="-parameters" />
+    </option>
+  </component>
+</project>

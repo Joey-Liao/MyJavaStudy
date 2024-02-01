@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/a-rocketmq-demo/a-rocketmq-demo.iml" filepath="$PROJECT_DIR$/a-rocketmq-demo/a-rocketmq-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/b-rocketmq-boot-p/b-rocketmq-boot-p.iml" filepath="$PROJECT_DIR$/b-rocketmq-boot-p/b-rocketmq-boot-p.iml" />
+      <module fileurl="file://$PROJECT_DIR$/c-rocketmq-boot-c/c-rocketmq-boot-c.iml" filepath="$PROJECT_DIR$/c-rocketmq-boot-c/c-rocketmq-boot-c.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d-tomcat-qps-test/d-tomcat-qps-test.iml" filepath="$PROJECT_DIR$/d-tomcat-qps-test/d-tomcat-qps-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/e-seckill-web/e-seckill-web.iml" filepath="$PROJECT_DIR$/e-seckill-web/e-seckill-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/f-seckill-service/f-seckill-service.iml" filepath="$PROJECT_DIR$/f-seckill-service/f-seckill-service.iml" />
+    </modules>
+  </component>
+</project>

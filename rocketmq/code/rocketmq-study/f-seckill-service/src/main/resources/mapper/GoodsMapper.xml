@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.powernode.mapper.GoodsMapper">
+  <resultMap id="BaseResultMap" type="com.powernode.domain.Goods">
+    <!--@mbg.generated-->
+    <!--@Table goods-->
+    <id column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="total_stocks" jdbcType="INTEGER" property="totalStocks" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="spike" jdbcType="INTEGER" property="spike" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    goods_id, goods_name, price, content, `status`, total_stocks, create_time, update_time, 
+    spike
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from goods
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from goods
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="goods_id" keyProperty="goodsId" parameterType="com.powernode.domain.Goods" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into goods (goods_name, price, content, 
+      `status`, total_stocks, create_time, 
+      update_time, spike)
+    values (#{goodsName,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{content,jdbcType=LONGVARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{totalStocks,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{spike,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="goods_id" keyProperty="goodsId" parameterType="com.powernode.domain.Goods" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsName != null">
+        goods_name,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="totalStocks != null">
+        total_stocks,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="spike != null">
+        spike,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goodsName != null">
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="totalStocks != null">
+        #{totalStocks,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spike != null">
+        #{spike,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.powernode.domain.Goods">
+    <!--@mbg.generated-->
+    update goods
+    <set>
+      <if test="goodsName != null">
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="totalStocks != null">
+        total_stocks = #{totalStocks,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spike != null">
+        spike = #{spike,jdbcType=INTEGER},
+      </if>
+    </set>
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.powernode.domain.Goods">
+    <!--@mbg.generated-->
+    update goods
+    set goods_name = #{goodsName,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      content = #{content,jdbcType=LONGVARCHAR},
+      `status` = #{status,jdbcType=INTEGER},
+      total_stocks = #{totalStocks,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      spike = #{spike,jdbcType=INTEGER}
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectSeckillGoods" resultMap="BaseResultMap">
+    select goods_id,total_stocks from   goods where `status` = 1 and spike = 1
+    </select>
+
+  <update id="updateStock">
+    update  goods set total_stocks = total_stocks - 1 ,update_time = now() where goods_id = #{value} and total_stocks - 1 >= 0
+
+  </update>
+</mapper>

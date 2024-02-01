@@ -1,0 +1,7 @@
+server:
+    port: 8081
+rocketmq:
+    name-server: 47.95.167.234:9876
+    consumer:
+        access-key: rocketmq2
+        secret-key: 12345678

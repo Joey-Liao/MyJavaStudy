@@ -1,0 +1,16 @@
+server:
+    port: 8081
+    tomcat:
+        threads:
+            max: 400
+spring:
+    redis:
+        host: localhost
+        port: 6379
+        database: 0
+rocketmq:
+    name-server: 192.168.206.186:9876
+    producer:
+        group: seckill-producer-group
+        access-key: rocketmq2
+        secret-key: 12345678
