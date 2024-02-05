@@ -1,6 +1,16 @@
+# 中文文档
+
+https://github.com/apache/rocketmq/tree/master/docs/cn
+
+# 官方文档
+
+https://rocketmq.apache.org/zh/docs/4.x/bestPractice/01bestpractice#%E6%B6%88%E8%B4%B9%E8%BF%87%E7%A8%8B%E5%B9%82%E7%AD%89
+
 # 1 和主流产品的比较
 
 ![img](rabiitmq入门.assets/clip_image002.jpg)
+
+
 
 # 2 RocketMQ重要概念
 
